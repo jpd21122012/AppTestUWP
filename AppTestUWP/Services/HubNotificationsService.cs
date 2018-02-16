@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 using AppTestUWP.Activation;
@@ -16,22 +17,28 @@ namespace AppTestUWP.Services
         public async Task InitializeAsync()
         {
             // TODO WTS: Set your Hub Name
-            var hubName = string.Empty;
+            var hubName = "IISSNotificationHub";
 
             // TODO WTS: Set your DefaultListenSharedAccessSignature
-            var accessSignature = string.Empty;
-
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-
-            var hub = new NotificationHub(hubName, accessSignature);
-            var result = await hub.RegisterNativeAsync(channel.Uri);
-            if (result.RegistrationId != null)
+            var accessSignature = "Endpoint=sb://iissnotificationhub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=4QRYSSvgRadFjjMqnFjs8nwiNMWidOy+GAGQtH/zuSA=";
+            try
             {
-                // Registration was successful
-            }
+                var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
-            // You can also send push notifications from Windows Developer Center targeting your app consumers
-            // More details at https://docs.microsoft.com/windows/uwp/publish/send-push-notifications-to-your-apps-customers
+                var hub = new NotificationHub(hubName, accessSignature);
+                var result = await hub.RegisterNativeAsync(channel.Uri);
+                if (result.RegistrationId != null)
+                {
+                    // Registration was successful
+                }
+
+                // You can also send push notifications from Windows Developer Center targeting your app consumers
+                // More details at https://docs.microsoft.com/windows/uwp/publish/send-push-notifications-to-your-apps-customers
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
         }
 
         protected override async Task HandleInternalAsync(ToastNotificationActivatedEventArgs args)

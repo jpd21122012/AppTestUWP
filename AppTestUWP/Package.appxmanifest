@@ -1,73 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
-<Package
-  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
-  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
-  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
-  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  xmlns:genTemplate="http://schemas.microsoft.com/appx/developer/windowsTemplateStudio"
-  IgnorableNamespaces="uap mp genTemplate">
-
-  <Identity
-    Name="9A945823-C3FF-4521-950C-873FE0766CD9"
-    Publisher="CN=slipk"
-    Version="1.0.0.0" />
-
-  <mp:PhoneIdentity PhoneProductId="9A945823-C3FF-4521-950C-873FE0766CD9" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
-
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:genTemplate="http://schemas.microsoft.com/appx/developer/windowsTemplateStudio" IgnorableNamespaces="uap mp genTemplate">
+  <Identity Name="57029JorgePeralesDiaz.NavigationUWP" Publisher="CN=BFD8FBFC-9C71-49F5-9C90-C9F77A0801C6" Version="1.1.2.0" />
+  <mp:PhoneIdentity PhoneProductId="37c3b385-296f-4150-85b1-b072e1e33e02" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>AppTestUWP</DisplayName>
-    <PublisherDisplayName>slipk</PublisherDisplayName>
+    <DisplayName>Navigation UWP</DisplayName>
+    <PublisherDisplayName>Jorge Perales Diaz</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
-
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
   </Dependencies>
-
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application Id="App"
-      Executable="$targetnametoken$.exe"
-      EntryPoint="AppTestUWP.App">
-      <uap:VisualElements
-        DisplayName="AppTestUWP"
-        Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="AppTestUWP"
-        BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="AppTestUWP.App">
+      <uap:VisualElements DisplayName="Navigation UWP" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="In this Educational App we can navigate around the different views, it was created for students that hasn't any idea about how to distribute the controls and the use of them, here you can travel from a blank page to a Media Player View or Map View or Web View or Charts and other interesting views." BackgroundColor="transparent">
+        <uap:LockScreen Notification="badgeAndTileText" BadgeLogo="Assets\BadgeLogo.png" />
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
+        </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="portrait" />
+          <uap:Rotation Preference="landscape" />
+          <uap:Rotation Preference="portraitFlipped" />
+          <uap:Rotation Preference="landscapeFlipped" />
+        </uap:InitialRotationPreference>
       </uap:VisualElements>
-
       <Extensions>
-        <uap3:Extension Category="windows.appUriHandler">
-          <uap3:AppUriHandler>
-            <uap3:Host Name="myapp.website.com"/>
-          </uap3:AppUriHandler>
-        </uap3:Extension>
         <uap:Extension Category="windows.protocol">
           <uap:Protocol Name="wtsapp">
             <uap:Logo>Assets\Icon.png</uap:Logo>
-            <uap:DisplayName>AppTestUWP</uap:DisplayName>
+            <uap:DisplayName>Navigation UWP</uap:DisplayName>
           </uap:Protocol>
         </uap:Extension>
+        <uap3:Extension Category="windows.appUriHandler">
+          <uap3:AppUriHandler>
+            <uap3:Host Name="myapp.website.com" />
+          </uap3:AppUriHandler>
+        </uap3:Extension>
       </Extensions>
     </Application>
   </Applications>
-
   <Capabilities>
     <Capability Name="internetClient" />
+    <Capability Name="codeGeneration" />
+    <uap:Capability Name="picturesLibrary" />
+    <uap:Capability Name="userAccountInformation" />
     <DeviceCapability Name="webcam" />
     <DeviceCapability Name="microphone" />
     <DeviceCapability Name="location" />
   </Capabilities>
-
   <genTemplate:Metadata>
-    <genTemplate:Item Name="generator" Value="Windows Template Studio"/>
+    <genTemplate:Item Name="generator" Value="Windows Template Studio" />
     <genTemplate:Item Name="wizardVersion" Version="v1.7.18030.1" />
     <genTemplate:Item Name="templatesVersion" Version="v1.7.18037.1" />
     <genTemplate:Item Name="projectType" Value="SplitView" />
